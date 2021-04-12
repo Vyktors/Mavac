@@ -16,7 +16,7 @@ void Menu::afficherMenuPrincipal()
 	cout << "#############################################" << endl;
 	cout << "#            MENU PRINCIPAL				 #" << endl;
 	cout << "#############################################" << endl;
-	cout << "| 1- " << endl;
+	cout << "| 1- Quitter" << endl;
 	cout << "| 2- " << endl;
 	cout << "| 3- " << endl;
 	cout << "| 4- " << endl;
@@ -26,13 +26,26 @@ void Menu::afficherMenuPrincipal()
 int Menu::demanderUnNombre(int minimum, int maximum)
 {
 	string choix;
-	cout << "Votre choix (entre " << minimum << " et " << maximum << ") : ";
-	cin >> choix;
-	while (!isInteger(choix))
+	bool sortirDeBoucle = false;
+	do
 	{
-		cout << "**Erreur: Vous devez entrer un nombre**" << endl;
-		cout << "Votre choix (entre " << minimum << " et " << maximum << ": ";
+		cout << "Votre choix (entre " << minimum << " et " << maximum << "): ";
 		cin >> choix;
-	}
+		if (!isInteger(choix))
+		{
+			cout << "**Erreur: Vous devez entrer un nombre entier**" << endl;
+			system("pause");
+		}
+		else if (isInteger(choix) < minimum || isInteger(choix) > maximum)
+		{
+			cout << "**Erreur: Vous devez entrer un nombre entre" << minimum << " et " << maximum << "**" << endl;
+			system("pause");
+		}
+		else
+		{
+			sortirDeBoucle = true;
+		}
+	} 
+	while (!sortirDeBoucle);
 	return atoi(choix.c_str());
 }

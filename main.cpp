@@ -6,7 +6,13 @@ int main()
 {
 	Menu menu;
 
-	menu.afficherMenuPrincipal();
-	
-	cout << endl << "Votre choix: " << menu.demanderUnNombre(1, 4);
+	do
+	{
+		system("cls");
+		menu.afficherMenuPrincipal();
+		cout << endl << "Votre choix: ";
+
+		
+	} while (menu.demanderUnNombre(1, 4) != 1);
+
 }
