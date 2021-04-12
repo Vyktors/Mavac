@@ -1,5 +1,10 @@
-#include "Menu.h"
 
+#include <vector>
+#include "Menu.h"
+#include "Hote.h"
+#include "Participant.h"
+
+#include <iostream>
 using namespace std;
 
 int main()
@@ -10,9 +15,7 @@ int main()
 	{
 		system("cls");
 		menu.afficherMenuPrincipal();
-		cout << endl << "Votre choix: ";
-
 		
 	} while (menu.demanderUnNombre(1, 4) != 1);
-
+	
 }

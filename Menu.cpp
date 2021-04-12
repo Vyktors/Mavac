@@ -14,7 +14,7 @@ void Menu::afficherMenuPrincipal()
 {
 
 	cout << "#############################################" << endl;
-	cout << "#            MENU PRINCIPAL				 #" << endl;
+	cout << "# MENU PRINCIPAL							 #" << endl;
 	cout << "#############################################" << endl;
 	cout << "| 1- Quitter" << endl;
 	cout << "| 2- " << endl;

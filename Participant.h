@@ -1,15 +1,14 @@
-#ifndef HOTE_H
-#define HOTE_H
+#ifndef PARTICIPANT_H
+#define PARTICIPANT_H
 
 #include "Membre.h"
 enum TypeMembre;
 
-class Hote: public Membre
+class Participant: public Membre
 {
 public:
-	Hote();
+	Participant();
 	virtual TypeMembre getTypeMembre() override;
 };
 
 #endif
-

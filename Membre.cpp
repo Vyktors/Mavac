@@ -1,4 +1,9 @@
 #include "Membre.h"
+#include "utilitaire.h"
+
+Membre::Membre()
+{
+}
 
 void Membre::setNomComplet(std::string nomComplet)
 {
@@ -48,4 +53,21 @@ std::string Membre::getTelephone() const
 std::string Membre::getNomFacebook() const
 {
     return m_nomFacebook;
+}
+
+
+/// <summary>
+/// Permet de récupérer sous format string le type de membre
+/// </summary>
+/// <param name="typeMembre">TypeMembre typeMembre</param>
+/// <returns>std::string typeMembre sous format string</returns>
+std::string Membre::getTypeMembreToString(TypeMembre typeMembre)
+{
+    std::string typeMembreString = "Participant";       // Par défaut
+    if (typeMembre == TypeMembre::Hote)
+    {
+        typeMembreString = "Hote";
+    }
+
+    return typeMembreString;
 }
