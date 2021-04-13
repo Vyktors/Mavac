@@ -1,8 +1,10 @@
 
 #include <vector>
+#include "FactoryMembre.h"
 #include "Menu.h"
 #include "Hote.h"
 #include "Participant.h"
+#include "utilitaire.h"
 
 #include <iostream>
 using namespace std;

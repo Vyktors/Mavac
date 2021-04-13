@@ -6,9 +6,14 @@ enum TypeMembre;
 
 class FactoryMembre
 {
+private:
+	FactoryMembre() {}
+	static FactoryMembre* m_instanceFactoryMembre;
+
 public:
-	FactoryMembre();
 	Membre* creerUnMembre(TypeMembre typeMembreACreer);
+	static FactoryMembre* getInstance();
 };
+
 
 #endif

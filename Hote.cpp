@@ -7,5 +7,5 @@ Hote::Hote():Membre()
 
 TypeMembre Hote::getTypeMembre()
 {
-    return TypeMembre::Hote;
+    return TypeMembre::Membre_Hote;
 }

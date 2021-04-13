@@ -3,8 +3,8 @@
 
 enum TypeMembre
 {
-	Participant,
-	Hote
+	Membre_Participant,
+	Membre_Hote
 };
 
 #endif

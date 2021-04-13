@@ -8,5 +8,5 @@ Participant::Participant(): Membre()
 
 TypeMembre Participant::getTypeMembre()
 {
-    return TypeMembre::Participant;
+    return TypeMembre::Membre_Participant;
 }

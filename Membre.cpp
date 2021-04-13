@@ -64,7 +64,7 @@ std::string Membre::getNomFacebook() const
 std::string Membre::getTypeMembreToString(TypeMembre typeMembre)
 {
     std::string typeMembreString = "Participant";       // Par défaut
-    if (typeMembre == TypeMembre::Hote)
+    if (typeMembre == TypeMembre::Membre_Hote)
     {
         typeMembreString = "Hote";
     }
