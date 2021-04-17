@@ -13,6 +13,10 @@ bool Menu::isInteger(const std::string& s)
 	return !s.empty() && it == s.end();
 }
 
+Menu::Menu() {
+
+}
+
 Menu::Menu(Salon* salon):m_salon(salon)
 {
 }
