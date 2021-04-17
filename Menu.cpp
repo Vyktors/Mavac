@@ -74,9 +74,11 @@ void Menu::ajouterUnMembre()
 	{
 	case 0:
 		nouveauMembre = laFactory->creerUnMembre(Membre_Participant);
+		cout << "Membre participant cree et ajoutee au salon!" << endl;
 		break;
 	case 1:
 		nouveauMembre = laFactory->creerUnMembre(Membre_Hote);
+		cout << "Membre hote cree et ajoutee au salon!" << endl;
 		break;
 	default:
 		break;
