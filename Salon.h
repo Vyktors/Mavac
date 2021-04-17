@@ -34,7 +34,7 @@ public:
 	std::vector<class Membre*> getListeParticipant();
 
 	// SETTERS
-	void ajouterUnParticipant(class Membre* participant);
+	bool ajouterUnParticipant(class Membre* participant);
 };
 
 #endif

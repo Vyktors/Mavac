@@ -74,19 +74,27 @@ void Menu::ajouterUnMembre()
 	{
 	case 0:
 		nouveauMembre = laFactory->creerUnMembre(Membre_Participant);
-		cout << "Membre participant cree et ajoutee au salon!" << endl;
+		cout << "Membre participant cree!" << endl;
 		break;
 	case 1:
 		nouveauMembre = laFactory->creerUnMembre(Membre_Hote);
-		cout << "Membre hote cree et ajoutee au salon!" << endl;
+		cout << "Membre hote cree!" << endl;
 		break;
 	default:
 		break;
 	}
 
 	//Changer structure pour booleen si salon est plein???
-	m_salon->ajouterUnParticipant(nouveauMembre);
+	if(m_salon->ajouterUnParticipant(nouveauMembre)) {
+		cout << "Membre ajoute avec succes au salon" << endl;
+		
+	}
+	else {
+		cout << "Le salon est plein, le membre n'a pu etre ajoute... Destruction du membre cree" << endl;
+		delete nouveauMembre;
+		
+	}
 
-
+	system("pause");
 
 }

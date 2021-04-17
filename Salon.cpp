@@ -42,11 +42,15 @@ std::vector<class Membre*> Salon::getListeParticipant()
     return m_listeParticipant;
 }
 
-void Salon::ajouterUnParticipant(Membre* participant)
+bool Salon::ajouterUnParticipant(Membre* participant)
 {
     // On ajoute seulement si on ne dépasse pas le nombre de participant maximal
     if (m_listeParticipant.size() + 1 <= m_nombreParticipantMax)
     {
         m_listeParticipant.push_back(participant);
+        return true;
+    }
+    else {
+        return false;
     }
 }
