@@ -1,14 +1,15 @@
 #include "BD.h"
 #include "Salon.h"
 #include "Menu.h"
+#include "Compte.h"
 #include <iostream>
 #include <string>
 using namespace std;
 
 int main()
 {
-	//Creer un array de comptes
-
+	//Creer un array de comptes (Pas fait finalement, on va garder ça simple)
+	//vector<Compte> lesComptes;
 
 	//Creer un salon
 	Salon leSalon("salonTest", 10, 5, "Ouvert", "Aleatoire", "AttaquantSeulement");
@@ -16,12 +17,29 @@ int main()
 
 	Menu menu(&leSalon);
 
+	bool continuer = true;
+
 	do
 	{
 		system("cls");
 		menu.afficherMenuPrincipal();
-		
-	} while (menu.demanderUnNombre(1, 4) != 1);
+		switch (menu.demanderUnNombre(1,4))
+		{
+		case 1:
+			continuer = false;
+			break;
+		case 2:
+			break;
+		case 3:
+			break;
+		case 4:
+			break;
+		default:
+			break;
+		}
+
+
+	} while (continuer);
 	
 
 	system("pause");

@@ -14,6 +14,7 @@ private:
 	std::string m_nomFacebook;
 
 public:
+	Compte();
 	Compte(string, string, string, string, string);
 	void setNomComplet(std::string nomComplet);
 	void setMotDePasse(std::string motDePasse);

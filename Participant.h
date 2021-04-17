@@ -14,7 +14,7 @@ private:
 	int m_idEquipe;
 	float m_pointage;
 	bool m_isEquipeValide = false;
-	std::vector<Joueur> m_listeJoueur;
+	std::vector<Joueur> m_listeJoueur; //le vecteur de joueur va etre dans la bd (probleme peut regler avec reserve, ou utilise joeurID)
 
 public:
 	Participant();
