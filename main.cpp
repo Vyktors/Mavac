@@ -1,11 +1,20 @@
 #include "BD.h"
+#include "Salon.h"
+#include "Menu.h"
 #include <iostream>
-
+#include <string>
 using namespace std;
 
 int main()
 {
-	Menu menu;
+	//Creer un array de comptes
+
+
+	//Creer un salon
+	Salon leSalon("salonTest", 10, 5, "Ouvert", "Aleatoire", "AttaquantSeulement");
+
+
+	Menu menu(&leSalon);
 
 	do
 	{

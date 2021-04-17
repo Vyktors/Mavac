@@ -4,7 +4,7 @@ Salon::Salon(std::string nomSalon, int nombreParticipantMax, int nombreJoueurMax
     m_nomSalon(nomSalon),m_nombreParticipantMax(nombreParticipantMax),m_nombreJoueurMax(nombreJoueurMax),
     m_methodeTirage(methodeTirage),m_restrictionEquipe(restrictionEquipe)
 {
-    NULL;
+
 }
 
 int Salon::getNombreParticipantMax() const

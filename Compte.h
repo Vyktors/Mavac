@@ -2,6 +2,7 @@
 #define COMPTE_H
 
 #include <string>
+using namespace std;
 
 class Compte
 {
@@ -13,6 +14,7 @@ private:
 	std::string m_nomFacebook;
 
 public:
+	Compte(string, string, string, string, string);
 	void setNomComplet(std::string nomComplet);
 	void setMotDePasse(std::string motDePasse);
 	void setEmail(std::string email);
