@@ -1,13 +1,20 @@
-#include "Menu.h"
+
 #include <iostream>
+#include "Menu.h"
+#include "Salon.h"
 
 using namespace std;
+
 
 bool Menu::isInteger(const std::string& s)
 {
 	std::string::const_iterator it = s.begin();
 	while (it != s.end() && std::isdigit(*it)) ++it;
 	return !s.empty() && it == s.end();
+}
+
+Menu::Menu(Salon* salon):m_salon(salon)
+{
 }
 
 void Menu::afficherMenuPrincipal()
@@ -48,4 +55,10 @@ int Menu::demanderUnNombre(int minimum, int maximum)
 	} 
 	while (!sortirDeBoucle);
 	return atoi(choix.c_str());
+}
+
+void Menu::ajouterUnMembre()
+{
+	system("cls");
+
 }
