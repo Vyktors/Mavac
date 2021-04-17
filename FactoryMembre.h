@@ -2,6 +2,7 @@
 #define FACTORYMEMBRE_H
 
 class Membre;
+
 enum TypeMembre;
 
 class FactoryMembre

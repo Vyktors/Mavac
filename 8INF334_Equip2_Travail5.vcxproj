@@ -125,6 +125,7 @@
   <ItemGroup>
     <ClCompile Include="BD.cpp" />
     <ClCompile Include="Compte.cpp" />
+    <ClCompile Include="EquipeParticipant.cpp" />
     <ClCompile Include="FactoryMembre.cpp" />
     <ClCompile Include="Hote.cpp" />
     <ClCompile Include="Joueur.cpp" />
@@ -137,6 +138,7 @@
   <ItemGroup>
     <ClInclude Include="BD.h" />
     <ClInclude Include="Compte.h" />
+    <ClInclude Include="EquipeParticipant.h" />
     <ClInclude Include="FactoryMembre.h" />
     <ClInclude Include="Hote.h" />
     <ClInclude Include="Joueur.h" />

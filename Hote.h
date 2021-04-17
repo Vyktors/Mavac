@@ -2,9 +2,10 @@
 #define HOTE_H
 
 #include "Membre.h"
+#include "Compte.h"
 enum TypeMembre;
 
-class Hote: public Membre
+class Hote: public Membre, public Compte
 {
 public:
 	Hote();
