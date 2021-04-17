@@ -8,10 +8,10 @@
 
 enum TypeMembre;
 
-class Participant: public Membre, public Compte
+class Participant: public Membre
 {
 private:
-	int m_idEquipe;
+	//int m_idEquipe;
 	float m_pointage;
 	bool m_isEquipeValide = false;
 	std::vector<Joueur> m_listeJoueur; //le vecteur de joueur va etre dans la bd (probleme peut regler avec reserve, ou utilise joeurID)
@@ -21,7 +21,7 @@ public:
 	virtual TypeMembre getTypeMembre() override;
 
 	// GETTERS
-	int getIdEquipe()const;
+	//int getIdEquipe()const;
 	float getPointage()const;
 	bool isEquipeValide()const;
 	std::vector<Joueur> getListeJoueur()const;

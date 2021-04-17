@@ -1,7 +1,6 @@
 
 #include <iostream>
 #include "Menu.h"
-#include "Salon.h"
 
 using namespace std;
 
@@ -61,6 +60,31 @@ int Menu::demanderUnNombre(int minimum, int maximum)
 
 void Menu::ajouterUnMembre()
 {
-	system("cls");
+	//system("cls");
+	int choix;
+	Membre* nouveauMembre=NULL;
+	FactoryMembre* laFactory;
+
+	//Determiner si participant ou hote
+	cout << "Le membre est-il ajoute en tant que participant ou hote? (0 = participant, 1 = hote) ";
+	choix = demanderUnNombre(0, 1);
+	laFactory = FactoryMembre::getInstance();
+
+	switch (choix)
+	{
+	case 0:
+		nouveauMembre = laFactory->creerUnMembre(Membre_Participant);
+		break;
+	case 1:
+		nouveauMembre = laFactory->creerUnMembre(Membre_Hote);
+		break;
+	default:
+		break;
+	}
+
+	//Changer structure pour booleen si salon est plein???
+	m_salon->ajouterUnParticipant(nouveauMembre);
+
+
 
 }

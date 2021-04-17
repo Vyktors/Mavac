@@ -2,6 +2,9 @@
 #define MENU_H
 
 #include <string>
+#include "utilitaire.h"
+#include "FactoryMembre.h"
+#include "Salon.h"
 
 class Salon;
 

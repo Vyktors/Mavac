@@ -5,7 +5,7 @@
 #include "Compte.h"
 enum TypeMembre;
 
-class Hote: public Membre, public Compte
+class Hote: public Membre
 {
 public:
 	Hote();

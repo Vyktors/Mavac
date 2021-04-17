@@ -1,7 +1,7 @@
 #include "Membre.h"
 #include "utilitaire.h"
 
-Membre::Membre()
+Membre::Membre(TypeMembre leType):m_typeMembre(leType)
 {
 }
 

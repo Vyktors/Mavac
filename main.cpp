@@ -29,6 +29,7 @@ int main()
 			continuer = false;
 			break;
 		case 2:
+			menu.ajouterUnMembre();
 			break;
 		case 3:
 			break;
