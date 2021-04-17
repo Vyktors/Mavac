@@ -4,7 +4,10 @@
 #include <string>
 #include <vector>
 
+#include "FactoryMembre.h"
+
 class Joueur;
+class FactoryMembre;
 
 class Salon
 {
@@ -15,7 +18,7 @@ private:
 	std::string m_nomSalon;
 	std::string m_methodeTirage;
 	std::string m_restrictionEquipe;
-
+	FactoryMembre factoryMembre;
 	std::vector<class Membre*> m_listeParticipant;
 
 public:

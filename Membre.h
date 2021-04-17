@@ -12,7 +12,6 @@ private:
 public:
 	Membre();
 	virtual TypeMembre getTypeMembre() = 0;
-	
 
 	//Méthode statique utilisable n'importe ou dans le programme pour convertir le type TypeMembre sous format string
 	static std::string getTypeMembreToString(TypeMembre typeMembre);

@@ -11,7 +11,7 @@ private:
 public:
 	void afficherMenuPrincipal();
 	int demanderUnNombre(int minimum, int maximum);
-
+	
 };
 
 #endif

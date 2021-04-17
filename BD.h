@@ -8,6 +8,9 @@
 #include "Participant.h"
 #include "utilitaire.h"
 
+// Juste pour les joueurs de Hockey
+
+
 class BD
 {
 private:

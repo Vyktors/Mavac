@@ -14,12 +14,12 @@ void Menu::afficherMenuPrincipal()
 {
 
 	cout << "#############################################" << endl;
-	cout << "# MENU PRINCIPAL							 #" << endl;
+	cout << "# MENU PRINCIPAL - Salon #1				 #" << endl;
 	cout << "#############################################" << endl;
 	cout << "| 1- Quitter" << endl;
-	cout << "| 2- " << endl;
-	cout << "| 3- " << endl;
-	cout << "| 4- " << endl;
+	cout << "| 2- Ajouter un membre dans le salon" << endl;
+	cout << "| 3- Opération sur la BD joueur" << endl;			// Facade :  Sous-menu pour avoir les infos d'un joueur
+	cout << "| 4- Modifier les stats d'un joueur" << endl;		// Observer
 	cout << "#############################################" << endl << endl;
 }
 
