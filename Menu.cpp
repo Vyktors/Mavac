@@ -5,7 +5,6 @@
 
 using namespace std;
 
-
 bool Menu::isInteger(const std::string& s)
 {
 	std::string::const_iterator it = s.begin();
