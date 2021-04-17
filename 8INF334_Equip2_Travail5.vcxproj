@@ -126,18 +126,22 @@
     <ClCompile Include="BD.cpp" />
     <ClCompile Include="FactoryMembre.cpp" />
     <ClCompile Include="Hote.cpp" />
+    <ClCompile Include="Joueur.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Membre.cpp" />
     <ClCompile Include="Menu.cpp" />
     <ClCompile Include="Participant.cpp" />
+    <ClCompile Include="Salon.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="BD.h" />
     <ClInclude Include="FactoryMembre.h" />
     <ClInclude Include="Hote.h" />
+    <ClInclude Include="Joueur.h" />
     <ClInclude Include="Membre.h" />
     <ClInclude Include="Menu.h" />
     <ClInclude Include="Participant.h" />
+    <ClInclude Include="Salon.h" />
     <ClInclude Include="utilitaire.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
