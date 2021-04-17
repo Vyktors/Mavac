@@ -3,9 +3,8 @@
 
 Membre::Membre(TypeMembre leType):m_typeMembre(leType)
 {
+
 }
-
-
 
 /// <summary>
 /// Permet de récupérer sous format string le type de membre
