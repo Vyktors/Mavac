@@ -3,7 +3,9 @@
 
 #include <string>
 #include <vector>
+
 class Joueur;
+
 class Salon
 {
 private:

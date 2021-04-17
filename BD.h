@@ -12,7 +12,7 @@ class BD
 {
 private:
 	// Liste de salon (qui contient la liste des joueurs)
-
+	std::vector<Membre*> m_listeMembres;
 };
 
 
