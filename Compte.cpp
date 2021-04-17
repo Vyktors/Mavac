@@ -1,6 +1,17 @@
 #include "Compte.h"
 
 
+Compte::Compte() {
+
+}
+
+Compte::Compte(string nomComplet, string motDePasse, string email, string telephone, string nomFacebook): m_nomComplet(nomComplet),
+    m_motDePasse(motDePasse), m_email(email), m_telephone(telephone), m_nomFacebook(nomFacebook)
+{
+
+}
+
+
 void Compte::setNomComplet(std::string nomComplet)
 {
     m_nomComplet = nomComplet;

@@ -10,7 +10,7 @@ private:
 	TypeMembre m_typeMembre;		// Enum qui permet de savoir si c'est une hote ou un participant
 
 public:
-	Membre();
+	Membre(TypeMembre);
 	virtual TypeMembre getTypeMembre() = 0;
 
 	//Méthode statique utilisable n'importe ou dans le programme pour convertir le type TypeMembre sous format string

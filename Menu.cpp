@@ -1,7 +1,6 @@
 
 #include <iostream>
 #include "Menu.h"
-#include "Salon.h"
 
 using namespace std;
 
@@ -11,6 +10,8 @@ bool Menu::isInteger(const std::string& s)
 	while (it != s.end() && std::isdigit(*it)) ++it;
 	return !s.empty() && it == s.end();
 }
+
+
 
 Menu::Menu(Salon* salon):m_salon(salon)
 {
@@ -58,6 +59,41 @@ int Menu::demanderUnNombre(int minimum, int maximum)
 
 void Menu::ajouterUnMembre()
 {
-	system("cls");
+	//system("cls");
+	int choix;
+	Membre* nouveauMembre=NULL;
+	FactoryMembre* laFactory;
+
+	//Determiner si participant ou hote
+	cout << "Le membre est-il ajoute en tant que participant ou hote? (0 = participant, 1 = hote) ";
+	choix = demanderUnNombre(0, 1);
+	laFactory = FactoryMembre::getInstance();
+
+	switch (choix)
+	{
+	case 0:
+		nouveauMembre = laFactory->creerUnMembre(Membre_Participant);
+		cout << "Membre participant cree!" << endl;
+		break;
+	case 1:
+		nouveauMembre = laFactory->creerUnMembre(Membre_Hote);
+		cout << "Membre hote cree!" << endl;
+		break;
+	default:
+		break;
+	}
+
+	//Changer structure pour booleen si salon est plein???
+	if(m_salon->ajouterUnParticipant(nouveauMembre)) {
+		cout << "Membre ajoute avec succes au salon" << endl;
+		
+	}
+	else {
+		cout << "Le salon est plein, le membre n'a pu etre ajoute... Destruction du membre cree" << endl;
+		delete nouveauMembre;
+		
+	}
+
+	system("pause");
 
 }

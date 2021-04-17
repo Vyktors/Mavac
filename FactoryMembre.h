@@ -1,9 +1,10 @@
 #ifndef FACTORYMEMBRE_H
 #define FACTORYMEMBRE_H
 
+#include "utilitaire.h"
+
 class Membre;
 
-enum TypeMembre;
 
 class FactoryMembre
 {

@@ -1,7 +1,7 @@
 #include "Participant.h"
 #include "utilitaire.h"
 
-Participant::Participant(): Membre()
+Participant::Participant(): Membre(Membre_Participant)
 {
 
 }
@@ -11,10 +11,10 @@ TypeMembre Participant::getTypeMembre()
     return TypeMembre::Membre_Participant;
 }
 
-int Participant::getIdEquipe() const
-{
-    return m_idEquipe;
-}
+//int Participant::getIdEquipe() const
+//{
+//    return m_idEquipe;
+//}
 
 float Participant::getPointage() const
 {

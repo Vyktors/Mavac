@@ -1,7 +1,7 @@
 #include "Hote.h"
 #include "utilitaire.h"
 
-Hote::Hote():Membre()
+Hote::Hote():Membre(Membre_Hote)
 {
 }
 

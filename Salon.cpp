@@ -4,6 +4,7 @@ Salon::Salon(std::string nomSalon, int nombreParticipantMax, int nombreJoueurMax
     m_nomSalon(nomSalon),m_nombreParticipantMax(nombreParticipantMax),m_nombreJoueurMax(nombreJoueurMax),
     m_methodeTirage(methodeTirage),m_restrictionEquipe(restrictionEquipe)
 {
+
 }
 
 int Salon::getNombreParticipantMax() const
@@ -41,11 +42,15 @@ std::vector<class Membre*> Salon::getListeParticipant()
     return m_listeParticipant;
 }
 
-void Salon::ajouterUnParticipant(Membre* participant)
+bool Salon::ajouterUnParticipant(Membre* participant)
 {
     // On ajoute seulement si on ne dépasse pas le nombre de participant maximal
     if (m_listeParticipant.size() + 1 <= m_nombreParticipantMax)
     {
         m_listeParticipant.push_back(participant);
+        return true;
+    }
+    else {
+        return false;
     }
 }

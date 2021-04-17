@@ -18,7 +18,7 @@ private:
 	std::string m_nomSalon;
 	std::string m_methodeTirage;
 	std::string m_restrictionEquipe;
-	FactoryMembre factoryMembre;
+	//FactoryMembre factoryMembre;
 	std::vector<class Membre*> m_listeParticipant;
 
 public:
@@ -34,7 +34,7 @@ public:
 	std::vector<class Membre*> getListeParticipant();
 
 	// SETTERS
-	void ajouterUnParticipant(class Membre* participant);
+	bool ajouterUnParticipant(class Membre* participant);
 };
 
 #endif
