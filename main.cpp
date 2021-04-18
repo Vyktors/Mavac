@@ -20,7 +20,7 @@ int main()
 
 
 
-	Menu menu(&leSalon);
+	Menu menu(&leSalon, &laBD);
 
 	bool continuer = true;
 

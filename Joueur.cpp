@@ -18,7 +18,7 @@ std::string Joueur::getPosition() const
     return m_positionJoueur;
 }
 
-int Joueur::getPartiJoueur() const
+int Joueur::getPartiJouee() const
 {
     return m_partieJouee;
 }

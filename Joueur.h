@@ -22,7 +22,7 @@ public:
 	// GETTERS
 	std::string getNomComplet()const;
 	std::string getPosition()const;
-	int getPartiJoueur()const;
+	int getPartiJouee()const;
 	int getAssist()const;
 	std::string getEquipeReel()const;
 	std::string getNationalite()const;
