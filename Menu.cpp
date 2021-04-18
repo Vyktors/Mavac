@@ -13,7 +13,7 @@ bool Menu::isInteger(const std::string& s)
 
 
 
-Menu::Menu(Salon* salon):m_salon(salon)
+Menu::Menu(Salon* salon, BD* bd):m_salon(salon), m_BD(bd)
 {
 }
 
@@ -25,7 +25,7 @@ void Menu::afficherMenuPrincipal()
 	cout << "#############################################" << endl;
 	cout << "| 1- Quitter" << endl;
 	cout << "| 2- Ajouter un membre dans le salon" << endl;
-	cout << "| 3- Opération sur la BD joueur" << endl;			// Facade :  Sous-menu pour avoir les infos d'un joueur
+	cout << "| 3- Operation sur la BD joueur" << endl;			// Facade :  Sous-menu pour avoir les infos d'un joueur
 	cout << "| 4- Modifier les stats d'un joueur" << endl;		// Observer
 	cout << "#############################################" << endl << endl;
 }
@@ -95,5 +95,137 @@ void Menu::ajouterUnMembre()
 	}
 
 	system("pause");
+
+}
+
+
+void Menu::operationBD() {
+	int choix;
+	afficherMenuBD();
+	choix = demanderUnNombre(1, 3);
+
+	switch (choix)
+	{
+	case 1:
+		break;
+	case 2:
+		afficherJoueur();
+		break;
+	case 3:
+		ajouterJoueur();
+		break;
+	case 4:
+		supprimerJoueur();
+		break;
+	default:
+		break;
+	}
+
+	system("pause");
+}
+void Menu::afficherMenuBD() {
+	cout << "#############################################" << endl;
+	cout << "# MENU BD - Salon #1				 #" << endl;
+	cout << "#############################################" << endl;
+	cout << "| 1- Quitter" << endl;		//RISQUES POSSIBLES?
+	cout << "| 2- Afficher information d'un joueur" << endl;
+	cout << "| 3- Ajouter un joueur" << endl;
+	cout << "| 4- Supprimer un joueur" << endl;		//RISQUES POSSIBLES? (Si utilise les index ailleurs)
+	//Modifier les stats serait option 4?
+	cout << "#############################################" << endl << endl;
+}
+
+void Menu::afficherJoueur() {
+	int index;
+	Joueur* leJoueur;
+
+	index = recupJoueurIndex();
+
+	if (index != -1)
+	{
+		leJoueur = m_BD->getJoueurParPositionVecteur(index);
+
+		cout << "Nom : " << leJoueur->getNomComplet() << endl;
+		cout << "Position : " << leJoueur->getPosition() << endl;
+		cout << "Parties jouees : " << leJoueur->getPartiJouee() << endl;
+		cout << "Nombre de buts : " << leJoueur->getNombreButs() << endl;
+		cout << "Assists : " << leJoueur->getAssist() << endl;
+		cout << "Points : " << leJoueur->getNombrePoints() << endl;
+		cout << "Salaire : " << leJoueur->getSalaire() << endl;
+		cout << "Equipe reelle : " << leJoueur->getEquipeReel() << endl;
+		cout << "Nationalite : " << leJoueur->getNationalite() << endl;
+
+	}
+
+	return;
+}
+
+int Menu::recupJoueurIndex() {
+	string nomJoueur;
+	int index;
+	cout << "Quel est le nom complet du joueur? ";
+	cin.ignore(1);
+	getline(cin, nomJoueur);
+	
+
+	index = m_BD->getPositionJoueurParNom(nomJoueur);
+
+	if (index != -1)
+	{
+		cout << "Joueur trouve!" << endl;
+	}
+	else {
+		cout << "Le joueur n'a pu etre trouve..." << endl;
+	}
+	return index;
+}
+
+void Menu::supprimerJoueur() {
+	int index;
+
+	index = recupJoueurIndex();
+	if (index != -1)
+	{
+		m_BD->supprimerJoueurParPositionVecteur(index);
+		cout << "Joueur supprime..." << endl;
+	}
+	return;
+}
+
+void Menu::ajouterJoueur() {
+	string nom, position, equipe, nationalite;
+	int partieJouee, nbBut, nbAssists, points;
+	float salaire;
+
+	cout << "Quel est du le nom du joueur? ";
+	cin.ignore(1);
+	getline(cin, nom);
+
+	cout << "Quel est du la position du joueur? ";
+	getline(cin, position);
+
+	cout << "Quel est l'equipe reele du joueur? ";
+	getline(cin, equipe);
+
+	cout << "Quel est du la nationalite du joueur? ";
+	getline(cin, nationalite);
+
+	cout << "Quel est le nombre de parties jouees par le joueur? ";
+	cin >> partieJouee;
+
+	cout << "Quel est le nombre de buts marques par le joueur? ";
+	cin >> nbBut;
+
+	cout << "Quel est le nombre d'assists du joueur? ";
+	cin >> nbAssists;
+
+	cout << "Quel est le nombre de points du joueur? ";	//Retirer cette question, car serait calculé? Faudrait mettre construct alt
+	cin >> points;
+
+	cout << "Quel est le salaire du joueur? ";
+	cin >> salaire;
+
+	m_BD->ajouterJoueur(nom, position, partieJouee, nbBut, nbAssists, points, salaire, equipe, nationalite);
+	cout << "Joueur ajoute" << endl;
 
 }
