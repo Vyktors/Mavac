@@ -11,8 +11,13 @@ int main()
 	//Creer un array de comptes (Pas fait finalement, on va garder ça simple)
 	//vector<Compte> lesComptes;
 
-	//Creer un salon
+	//Creer un salon et BD par défaut
+	BD laBD;
+	laBD.InitialiserBD();
+
 	Salon leSalon("salonTest", 10, 5, "Ouvert", "Aleatoire", "AttaquantSeulement");
+
+
 
 
 	Menu menu(&leSalon);

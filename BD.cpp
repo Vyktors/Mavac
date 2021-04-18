@@ -8,11 +8,12 @@
 int BD::getPositionJoueurParNom(std::string nom)
 {
 	int positionJoueur = -1;
-	for (int i = 0; i < m_listeMembres.size(); i++)
+	for (int i = 0; i < m_listeJoueur.size(); i++)
 	{
-		if (strcmp(m_listeMembres[i]->getNomComplet().c_str(),nom.c_str()) == 0)
+		if (strcmp(m_listeJoueur[i]->getNomComplet().c_str(),nom.c_str()) == 0)
 		{
 			positionJoueur = i;
+			return positionJoueur;
 		}
 	}
 	return positionJoueur;
@@ -26,9 +27,9 @@ int BD::getPositionJoueurParNom(std::string nom)
 Joueur* BD::getJoueurParPositionVecteur(int positionJoueur)
 {
 	Joueur* leJoueur = nullptr;
-	if(positionJoueur != -1 && positionJoueur < m_listeMembres.size())
+	if(positionJoueur != -1 && positionJoueur < m_listeJoueur.size())
 	{
-		leJoueur = m_listeMembres[positionJoueur];
+		leJoueur = m_listeJoueur[positionJoueur];
 	}
 	return leJoueur;
 }
@@ -41,9 +42,11 @@ Joueur* BD::getJoueurParPositionVecteur(int positionJoueur)
 /// <param name="positionJoueur"></param>
 void BD::modifierJoueurParPositionVecteur(Joueur* nouveauJoueur, int positionJoueur)
 {
-	if (positionJoueur != -1 && positionJoueur < m_listeMembres.size())
+	if (positionJoueur != -1 && positionJoueur < m_listeJoueur.size())
 	{
-		m_listeMembres[positionJoueur] = nouveauJoueur;
+		//delete ici ou delete en dehors de l'appel de fonction, car on a surement fait un new pour créer le nouveau joueur
+		//sinon serait une memory leak?
+		m_listeJoueur[positionJoueur] = nouveauJoueur;
 	}
 }
 
@@ -54,10 +57,33 @@ void BD::modifierJoueurParPositionVecteur(Joueur* nouveauJoueur, int positionJou
 /// <param name="positionJoueur"></param>
 void BD::supprimerJoueurParPositionVecteur(int positionJoueur)
 {
-	if (positionJoueur != -1 && positionJoueur < m_listeMembres.size())
+	if (positionJoueur != -1 && positionJoueur < m_listeJoueur.size())
 	{
-		delete m_listeMembres[positionJoueur];
-		m_listeMembres.erase(m_listeMembres.begin() + positionJoueur);
+		delete m_listeJoueur[positionJoueur];
+		m_listeJoueur.erase(m_listeJoueur.begin() + positionJoueur);
 	}
 	
+}
+
+
+void BD::ajouterJoueur(string nom, string position, int partieJouer, int nombreBut, int assist, int points, float salaire, string equipeReel, string nationalite)
+{
+	Joueur* joueur = new Joueur(nom, position, partieJouer, nombreBut, assist, points, salaire, equipeReel, nationalite);
+
+	m_listeJoueur.push_back(joueur);
+}
+
+void BD::InitialiserBD()
+{
+	ajouterJoueur("Nick Suzuki", "Centre", 20, 8, 7, 33, 832500, "Canadiens", "Canadien");
+	ajouterJoueur("Jeff Petry", "Defenseur", 15, 4, 3, 18, 600500, "Canadiens", "Americain");
+	ajouterJoueur("Falun Sweden", "Defenseur", 35, 4, 3, 40, 600500, "Canadiens", "Americain");
+	ajouterJoueur("Adam Boqvist", "Defenseur", 40, 10, 9, 600, 1000000, "Blackhawks de Chicago", "Americain");
+	ajouterJoueur("Brandon Hagel", "Ailier gauche", 40, 10, 9, 500, 1000000, "Chicago Blackhawks", "Americain");
+	ajouterJoueur("Sidney Crosby", "Ailier gauche", 50, 17, 32, 1312, 2000000, "Penguins de Pittsburgh", "Canadien");
+	ajouterJoueur("Andrei Vasilevskiy", "Gardien de but", 30, 1, 3, 1000, 1200000, "Lightning de Tampa Bay", "Russe");
+	ajouterJoueur("Connor Hellebuyck", "Gardien de but", 25, 1, 3, 700, 1000000, "Jets de Winnipeg", "Americain");
+	ajouterJoueur("Mitch Marner", "Ailier droit", 10, 1, 3, 700, 900000, "Maple Leafs de Toronto", "Canadien");
+	ajouterJoueur("Aleksandr Ovetchkine", "Ailier gauche", 35, 20, 10, 1200, 130000, "Capitals de Washington", "Russe");
+
 }
