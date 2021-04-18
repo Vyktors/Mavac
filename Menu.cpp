@@ -97,3 +97,40 @@ void Menu::ajouterUnMembre()
 	system("pause");
 
 }
+
+
+void Menu::operationBD() {
+	int choix;
+	afficherMenuBD();
+	choix = demanderUnNombre(1, 3);
+
+	switch (choix)
+	{
+	case 1:
+		break;
+	case 2:
+		cout << "Ajouter" << endl;
+		break;
+	case 3:
+		cout << "Supprimer" << endl;
+		break;
+	case 4:
+		cout << "Supprimer" << endl;
+		break;
+	default:
+		break;
+	}
+
+	system("pause");
+}
+void Menu::afficherMenuBD() {
+	cout << "#############################################" << endl;
+	cout << "# MENU BD - Salon #1				 #" << endl;
+	cout << "#############################################" << endl;
+	cout << "| 1- Quitter" << endl;		//RISQUES POSSIBLES?
+	cout << "| 2- Afficher information d'un joueur" << endl;
+	cout << "| 3- Ajouter un joueur" << endl;
+	cout << "| 4- Supprimer un joueur" << endl;		//RISQUES POSSIBLES?
+	//Modifier les stats serait option 4?
+	cout << "#############################################" << endl << endl;
+}

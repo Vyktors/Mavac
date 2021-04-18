@@ -19,6 +19,14 @@ public:
 	void afficherMenuPrincipal();
 	int demanderUnNombre(int minimum, int maximum);
 	void ajouterUnMembre();
+	void operationBD();
+	void afficherMenuBD();
+
+	//Operations de BD
+	void ajouterJoueur();
+	void afficherJoueur();
+	void modifierJoueur();
+	void supprimerJoueur();
 };
 
 #endif

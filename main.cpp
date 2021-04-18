@@ -37,6 +37,7 @@ int main()
 			menu.ajouterUnMembre();
 			break;
 		case 3:
+			menu.operationBD();
 			break;
 		case 4:
 			break;
