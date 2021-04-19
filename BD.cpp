@@ -66,24 +66,29 @@ void BD::supprimerJoueurParPositionVecteur(int positionJoueur)
 }
 
 
-void BD::ajouterJoueur(string nom, string position, int partieJouer, int nombreBut, int assist, int points, float salaire, string equipeReel, string nationalite)
+void BD::ajouterJoueur(Joueur* joueurAAjouter)
 {
-	Joueur* joueur = new Joueur(nom, position, partieJouer, nombreBut, assist, points, salaire, equipeReel, nationalite);
+	m_listeJoueur.push_back(joueurAAjouter);
+}
 
-	m_listeJoueur.push_back(joueur);
+void BD::ajouterJoueurBrut(string nom, string position, int partieJouer, int nombreBut, int assist, int points, float salaire, string equipeReel, string nationalite)
+{
+	Joueur* nouveauJoueur;
+	nouveauJoueur = new Joueur(nom, position, partieJouer, nombreBut, assist, points, salaire, equipeReel, nationalite);
+	m_listeJoueur.push_back(nouveauJoueur);
 }
 
 void BD::InitialiserBD()
 {
-	ajouterJoueur("Nick Suzuki", "Centre", 20, 8, 7, 33, 83000, "Canadiens", "Canadien");
-	ajouterJoueur("Jeff Petry", "Defenseur", 15, 4, 3, 18, 60300, "Canadiens", "Americain");
-	ajouterJoueur("Falun Sweden", "Defenseur", 35, 4, 3, 40, 60050, "Canadiens", "Americain");
-	ajouterJoueur("Adam Boqvist", "Defenseur", 40, 10, 9, 600, 100000, "Blackhawks de Chicago", "Americain");
-	ajouterJoueur("Brandon Hagel", "Ailier gauche", 40, 10, 9, 500, 50000, "Chicago Blackhawks", "Americain");
-	ajouterJoueur("Sidney Crosby", "Ailier gauche", 50, 17, 32, 1312, 200000, "Penguins de Pittsburgh", "Canadien");
-	ajouterJoueur("Andrei Vasilevskiy", "Gardien de but", 30, 1, 3, 1000, 120000, "Lightning de Tampa Bay", "Russe");
-	ajouterJoueur("Connor Hellebuyck", "Gardien de but", 25, 1, 3, 700, 100000, "Jets de Winnipeg", "Americain");
-	ajouterJoueur("Mitch Marner", "Ailier droit", 10, 1, 3, 700, 90000, "Maple Leafs de Toronto", "Canadien");
-	ajouterJoueur("Aleksandr Ovetchkine", "Ailier gauche", 35, 20, 10, 1200, 13000, "Capitals de Washington", "Russe");
+	ajouterJoueurBrut("Nick Suzuki", "Centre", 20, 8, 7, 33, 83000, "Canadiens", "Canadien");
+	ajouterJoueurBrut("Jeff Petry", "Defenseur", 15, 4, 3, 18, 60300, "Canadiens", "Americain");
+	ajouterJoueurBrut("Falun Sweden", "Defenseur", 35, 4, 3, 40, 60050, "Canadiens", "Americain");
+	ajouterJoueurBrut("Adam Boqvist", "Defenseur", 40, 10, 9, 600, 100000, "Blackhawks de Chicago", "Americain");
+	ajouterJoueurBrut("Brandon Hagel", "Ailier gauche", 40, 10, 9, 500, 50000, "Chicago Blackhawks", "Americain");
+	ajouterJoueurBrut("Sidney Crosby", "Ailier gauche", 50, 17, 32, 1312, 200000, "Penguins de Pittsburgh", "Canadien");
+	ajouterJoueurBrut("Andrei Vasilevskiy", "Gardien de but", 30, 1, 3, 1000, 120000, "Lightning de Tampa Bay", "Russe");
+	ajouterJoueurBrut("Connor Hellebuyck", "Gardien de but", 25, 1, 3, 700, 100000, "Jets de Winnipeg", "Americain");
+	ajouterJoueurBrut("Mitch Marner", "Ailier droit", 10, 1, 3, 700, 90000, "Maple Leafs de Toronto", "Canadien");
+	ajouterJoueurBrut("Aleksandr Ovetchkine", "Ailier gauche", 35, 20, 10, 1200, 13000, "Capitals de Washington", "Russe");
 
 }

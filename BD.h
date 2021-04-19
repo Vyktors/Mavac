@@ -21,7 +21,8 @@ public:
 	Joueur* getJoueurParPositionVecteur(int positionJoueur);
 	void modifierJoueurParPositionVecteur(Joueur* nouveauJoueur,int positionJoueur);
 	void supprimerJoueurParPositionVecteur(int positionJoueur);
-	void ajouterJoueur(string nom, string position, int partieJouer, int nombreBut, int assist, int points, float salaire, string equipeReel, string nationalite);
+	void ajouterJoueur(Joueur* joueurAAjouter);
+	void ajouterJoueurBrut(string nom, string position, int partieJouer, int nombreBut, int assist, int points, float salaire, string equipeReel, string nationalite);
 	void InitialiserBD();
 };
 

@@ -61,7 +61,7 @@ void Menu::ajouterUnMembre()
 {
 	//system("cls");
 	int choix;
-	Membre* nouveauMembre=NULL;
+	Membre* nouveauMembre= nullptr;
 	FactoryMembre* laFactory;
 
 	//Determiner si participant ou hote
@@ -99,7 +99,8 @@ void Menu::ajouterUnMembre()
 }
 
 
-void Menu::operationBD() {
+void Menu::operationBD() 
+{
 	int choix;
 	afficherMenuBD();
 	choix = demanderUnNombre(1, 3);
@@ -112,9 +113,12 @@ void Menu::operationBD() {
 		afficherJoueur();
 		break;
 	case 3:
-		ajouterJoueur();
+		ajouterJoueur(creerUnNouveauJoueur());
 		break;
 	case 4:
+		supprimerJoueur();
+		break;
+	case 5:
 		supprimerJoueur();
 		break;
 	default:
@@ -123,19 +127,22 @@ void Menu::operationBD() {
 
 	system("pause");
 }
-void Menu::afficherMenuBD() {
+void Menu::afficherMenuBD() 
+{
 	cout << "#############################################" << endl;
 	cout << "# MENU BD - Salon #1				 #" << endl;
 	cout << "#############################################" << endl;
 	cout << "| 1- Quitter" << endl;		//RISQUES POSSIBLES?
 	cout << "| 2- Afficher information d'un joueur" << endl;
 	cout << "| 3- Ajouter un joueur" << endl;
-	cout << "| 4- Supprimer un joueur" << endl;		//RISQUES POSSIBLES? (Si utilise les index ailleurs)
+	cout << "| 4- Modifier un joueur" << endl;		
+	cout << "| 5- Supprimer un joueur" << endl;		//RISQUES POSSIBLES? (Si utilise les index ailleurs)
 	//Modifier les stats serait option 4?
 	cout << "#############################################" << endl << endl;
 }
 
-void Menu::afficherJoueur() {
+void Menu::afficherJoueur() 
+{
 	int index;
 	Joueur* leJoueur;
 
@@ -160,6 +167,20 @@ void Menu::afficherJoueur() {
 	return;
 }
 
+void Menu::modifierJoueur()
+{
+	int index;
+	index = recupJoueurIndex();
+	if (index != -1)
+	{
+
+	}
+	else 
+	{
+		cout << "Le joueur n'a pu etre trouve..." << endl;
+	}
+}
+
 int Menu::recupJoueurIndex() {
 	string nomJoueur;
 	int index;
@@ -180,19 +201,9 @@ int Menu::recupJoueurIndex() {
 	return index;
 }
 
-void Menu::supprimerJoueur() {
-	int index;
-
-	index = recupJoueurIndex();
-	if (index != -1)
-	{
-		m_BD->supprimerJoueurParPositionVecteur(index);
-		cout << "Joueur supprime..." << endl;
-	}
-	return;
-}
-
-void Menu::ajouterJoueur() {
+Joueur* Menu::creerUnNouveauJoueur()
+{
+	Joueur* unNouveauJoueur = nullptr;
 	string nom, position, equipe, nationalite;
 	int partieJouee, nbBut, nbAssists, points;
 	float salaire;
@@ -225,7 +236,40 @@ void Menu::ajouterJoueur() {
 	cout << "Quel est le salaire du joueur? ";
 	cin >> salaire;
 
-	m_BD->ajouterJoueur(nom, position, partieJouee, nbBut, nbAssists, points, salaire, equipe, nationalite);
-	cout << "Joueur ajoute" << endl;
+	unNouveauJoueur = new Joueur(nom, position, partieJouee, nbAssists, nbAssists, points, salaire, equipe, nationalite);
 
+	return unNouveauJoueur;
+}
+
+void Menu::supprimerJoueur() {
+	int index;
+
+	index = recupJoueurIndex();
+	if (index != -1)
+	{
+		m_BD->supprimerJoueurParPositionVecteur(index);
+		cout << "Joueur supprime..." << endl;
+	}
+	return;
+}
+
+void Menu::ajouterJoueur(Joueur* joueurAAjouter) 
+{
+	if (joueurAAjouter != nullptr)
+	{
+		// On ajoute le joueur seulement s'il n'existe pas déjà
+		if (m_BD->getPositionJoueurParNom(joueurAAjouter->getNomComplet()) == -1)
+		{
+			m_BD->ajouterJoueur(joueurAAjouter);
+			cout << "Joueur ajoute" << endl;
+		}
+		else
+		{
+			cout << "Erreur: Le joueur existe deja." << endl;
+		}
+	}
+	else
+	{
+		cout << "Erreur: Le joueur n'a pas été ajoute." << endl;
+	}
 }

@@ -27,7 +27,8 @@ public:
 
 	//Operations de BD
 	int recupJoueurIndex();
-	void ajouterJoueur();
+	Joueur* creerUnNouveauJoueur();
+	void ajouterJoueur(Joueur* joueurAAjouter);
 	void afficherJoueur();
 	void modifierJoueur();
 	void supprimerJoueur();
