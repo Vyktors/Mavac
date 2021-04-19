@@ -116,7 +116,7 @@ void Menu::operationBD()
 		ajouterJoueur(creerUnNouveauJoueur());
 		break;
 	case 4:
-		supprimerJoueur();
+		modifierJoueur();
 		break;
 	case 5:
 		supprimerJoueur();
@@ -266,6 +266,7 @@ void Menu::ajouterJoueur(Joueur* joueurAAjouter)
 		else
 		{
 			cout << "Erreur: Le joueur existe deja." << endl;
+			delete joueurAAjouter;
 		}
 	}
 	else
