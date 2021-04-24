@@ -8,6 +8,7 @@
 #include "Joueur.h"
 #include "BD.h"
 #include "SouscripteurInterface.h"
+#include <vector>
 class Salon;
 
 class Menu: public SouscripteurInterface

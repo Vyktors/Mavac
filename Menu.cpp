@@ -183,10 +183,14 @@ void Menu::afficherJoueur()
 
 void Menu::modifierJoueur()
 {
-	int index;
+	int index, choix;
+	Joueur* nouvJoueur;
 	index = recupJoueurIndex();
 	if (index != -1)
 	{
+		cout << "Veuillez entrez toutes les informations du joueurs, et modifier celles qui vous interesse" << endl;
+		nouvJoueur = creerUnNouveauJoueur();
+		m_BD->modifierJoueurParPositionVecteur(nouvJoueur, index);
 
 	}
 	else 

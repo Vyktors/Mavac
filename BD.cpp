@@ -12,6 +12,19 @@ void BD::ajouterUnSouscripteur(SouscripteurInterface* souscripteur)
 	}
 }
 
+BD::~BD() {
+	while (!m_listeJoueur.empty())
+	{
+		delete m_listeJoueur.back();
+		m_listeJoueur.pop_back();
+	}
+
+	while (!m_listeSouscripteur.empty()) {
+		delete m_listeSouscripteur.back();
+		m_listeSouscripteur.pop_back();
+	}
+}
+
 /// <summary>
 /// Retour -1 si le joueur n'existe pas
 /// </summary>
@@ -56,10 +69,9 @@ void BD::modifierJoueurParPositionVecteur(Joueur* nouveauJoueur, int positionJou
 {
 	if (positionJoueur != -1 && positionJoueur < m_listeJoueur.size())
 	{
-		//delete ici ou delete en dehors de l'appel de fonction, car on a surement fait un new pour créer le nouveau joueur
-		//sinon serait une memory leak?
+		delete m_listeJoueur[positionJoueur];
 		m_listeJoueur[positionJoueur] = nouveauJoueur;
-
+		notifierLesSouscripteurs("Un joueur a ete modifie");
 	}
 }
 
@@ -74,6 +86,7 @@ void BD::supprimerJoueurParPositionVecteur(int positionJoueur)
 	{
 		delete m_listeJoueur[positionJoueur];
 		m_listeJoueur.erase(m_listeJoueur.begin() + positionJoueur);
+		notifierLesSouscripteurs("Un joueur a ete supprime");
 	}
 	
 }
