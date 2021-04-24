@@ -12,32 +12,30 @@ int main()
 	//vector<Compte> lesComptes;
 
 	//Creer un salon et BD par défaut
-	BD laBD;
-	laBD.InitialiserBD();
+	BD* laBD = new BD();
+	Salon* leSalon = new Salon("salonTest", 10, 5, "Ouvert", "Aleatoire", "AttaquantSeulement");
+	Menu* menu = new Menu(leSalon, laBD);
 
-	Salon leSalon("salonTest", 10, 5, "Ouvert", "Aleatoire", "AttaquantSeulement");
+	// Initialisation de l'observateur et de la BD
+	laBD->ajouterUnSouscripteur(menu);
+	laBD->InitialiserBD();
 
-
-
-
-	Menu menu(&leSalon, &laBD);
 
 	bool continuer = true;
 
 	do
 	{
-		system("cls");
-		menu.afficherMenuPrincipal();
-		switch (menu.demanderUnNombre(1,4))
+		menu->afficherMenuPrincipal();
+		switch (menu->demanderUnNombre(1,4))
 		{
 		case 1:
 			continuer = false;
 			break;
 		case 2:
-			menu.ajouterUnMembre();
+			menu->ajouterUnMembre();
 			break;
 		case 3:
-			menu.operationBD();
+			menu->operationBD();
 			break;
 		case 4:
 			break;
@@ -50,4 +48,7 @@ int main()
 	
 
 	system("pause");
+
+	delete laBD;
+	delete leSalon;
 }

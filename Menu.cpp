@@ -15,19 +15,33 @@ bool Menu::isInteger(const std::string& s)
 
 Menu::Menu(Salon* salon, BD* bd):m_salon(salon), m_BD(bd)
 {
+	
 }
 
 void Menu::afficherMenuPrincipal()
 {
 
-	cout << "#############################################" << endl;
+	system("cls");
+
+	cout << "............................................" << endl;
 	cout << "# MENU PRINCIPAL - Salon #1				 #" << endl;
-	cout << "#############################################" << endl;
-	cout << "| 1- Quitter" << endl;
-	cout << "| 2- Ajouter un membre dans le salon" << endl;
-	cout << "| 3- Operation sur la BD joueur" << endl;			// Facade :  Sous-menu pour avoir les infos d'un joueur
-	cout << "| 4- Modifier les stats d'un joueur" << endl;		// Observer
-	cout << "#############################################" << endl << endl;
+	cout << "............................................" << endl;
+	cout << "1- Quitter" << endl;
+	cout << "2- Ajouter un membre dans le salon" << endl;
+	cout << "3- Operation sur la BD joueur" << endl;			// Facade :  Sous-menu pour avoir les infos d'un joueur
+	cout << "4- Modifier les stats d'un joueur" << endl;		// Observer
+	cout << "............................................" << endl << endl;
+
+	cout << "--------------------------------------------" << endl;
+	cout << "Notification(s)" << endl;
+	cout << "--------------------------------------------" << endl;
+	cout << m_listeNotification.size() <<" message(s)" << endl << endl;
+	// On affiche les messages les plus récent en haut
+	for (int i = m_listeNotification.size()-1; i >= 0; i--)
+	{
+		cout << "-> " << m_listeNotification[i] << endl;
+	}
+	cout << "--------------------------------------------" << endl << endl;
 }
 
 int Menu::demanderUnNombre(int minimum, int maximum)
@@ -251,6 +265,12 @@ void Menu::supprimerJoueur() {
 		cout << "Joueur supprime..." << endl;
 	}
 	return;
+}
+
+void Menu::miseAJour(std::string message)
+{
+	// J'ajoute le message de notification dans le vector
+	m_listeNotification.push_back(message);
 }
 
 void Menu::ajouterJoueur(Joueur* joueurAAjouter) 

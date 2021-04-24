@@ -1,5 +1,17 @@
 #include "BD.h"
 
+#include <iostream>
+using namespace std;
+
+
+void BD::ajouterUnSouscripteur(SouscripteurInterface* souscripteur)
+{
+	if (souscripteur != nullptr)
+	{
+		m_listeSouscripteur.push_back(souscripteur);
+	}
+}
+
 /// <summary>
 /// Retour -1 si le joueur n'existe pas
 /// </summary>
@@ -47,6 +59,7 @@ void BD::modifierJoueurParPositionVecteur(Joueur* nouveauJoueur, int positionJou
 		//delete ici ou delete en dehors de l'appel de fonction, car on a surement fait un new pour créer le nouveau joueur
 		//sinon serait une memory leak?
 		m_listeJoueur[positionJoueur] = nouveauJoueur;
+
 	}
 }
 
@@ -69,6 +82,7 @@ void BD::supprimerJoueurParPositionVecteur(int positionJoueur)
 void BD::ajouterJoueur(Joueur* joueurAAjouter)
 {
 	m_listeJoueur.push_back(joueurAAjouter);
+	notifierLesSouscripteurs("Un joueur a ete ajoute dans la BD");
 }
 
 void BD::ajouterJoueurBrut(string nom, string position, int partieJouer, int nombreBut, int assist, int points, float salaire, string equipeReel, string nationalite)
@@ -90,5 +104,13 @@ void BD::InitialiserBD()
 	ajouterJoueurBrut("Connor Hellebuyck", "Gardien de but", 25, 1, 3, 700, 100000, "Jets de Winnipeg", "Americain");
 	ajouterJoueurBrut("Mitch Marner", "Ailier droit", 10, 1, 3, 700, 90000, "Maple Leafs de Toronto", "Canadien");
 	ajouterJoueurBrut("Aleksandr Ovetchkine", "Ailier gauche", 35, 20, 10, 1200, 13000, "Capitals de Washington", "Russe");
+	notifierLesSouscripteurs("La BD a ete initialise");
+}
 
+void BD::notifierLesSouscripteurs(std::string message)
+{
+	for (int i = 0; i < m_listeSouscripteur.size(); i++)
+	{
+		m_listeSouscripteur[i]->miseAJour(message);
+	}
 }

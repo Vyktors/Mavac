@@ -7,15 +7,16 @@
 #include "Salon.h"
 #include "Joueur.h"
 #include "BD.h"
-
+#include "SouscripteurInterface.h"
 class Salon;
 
-class Menu
+class Menu: public SouscripteurInterface
 {
 private:
 	bool isInteger(const std::string& s);
 	Salon* m_salon;
 	BD* m_BD;
+	std::vector<std::string> m_listeNotification;
 
 public:
 	Menu(Salon* salon, BD*);
@@ -32,6 +33,8 @@ public:
 	void afficherJoueur();
 	void modifierJoueur();
 	void supprimerJoueur();
+
+	virtual void miseAJour(std::string message) override;
 };
 
 #endif
