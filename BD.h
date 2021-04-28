@@ -30,6 +30,8 @@ public:
 	void InitialiserBD();
 
 	void notifierLesSouscripteurs(std::string message);
+
+	~BD();
 };
 
 
